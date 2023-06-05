@@ -39,7 +39,11 @@ function Home() {
             <button
                 className="cursor-pointer"
                 onClick={isModalOpen ? closeModal : openModal}
-                style={{ width: "100%" }}
+                style={{
+                    width: "100%",
+                    border: "none",
+                    backgroundColor: "transparent",
+                }}
             >
                 <div style={logoStyle}>
                     <img
@@ -52,13 +56,29 @@ function Home() {
             {isModalOpen && (
                 <div
                     style={{
-                        position: "absolute",
-                        top: "37.5%",
-                        left: "37.5%",
-                        transform: "translate(-50%, -50%)",
+                        position: "fixed",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        // backgroundColor: "rgba(0, 0, 0, 0.5)",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
                     }}
                 >
-                    <Modal isOpen={isModalOpen} onClose={closeModal} y="200px">
+                    <div
+                        style={{
+                            backgroundColor: "white",
+                            padding: "24px",
+                            borderRadius: "8px",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "left",
+                            gap: "16px",
+                            width: "35%",
+                        }}
+                    >
                         <div
                             style={{
                                 display: "flex",
@@ -96,7 +116,7 @@ function Home() {
                                 />
                             </div>
                         </div>
-                    </Modal>
+                    </div>
                 </div>
             )}
         </div>
